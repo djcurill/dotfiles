@@ -1,4 +1,5 @@
-# My Dev Card
+# Dev Preferences
+
 **Editor of Choice:** LunarVim
 I love the look, and it provides sane defaults. The documentation could be better,
 but it is concise. For anyone wanting use LunarVim, I recommend working through 
@@ -6,6 +7,6 @@ but it is concise. For anyone wanting use LunarVim, I recommend working through
 
 **Shell of Choice:** Zsh + Oh-my-zsh + powerlevel10k
 
-**Theme:** Tokyo Midnight
+**Theme:** Dracula
 
 
