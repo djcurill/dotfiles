@@ -1,0 +1,29 @@
+#!/bin/zsh
+#
+alias aliases="cat ~/.aliases"
+
+# chrome / web
+alias chrome="open -a 'Google Chrome'"
+
+# k8s
+alias k="kubectl"
+alias kgp="k get pods"
+alias kgd="k get deployments"
+alias kgs="k get services"
+
+# gh
+alias repo="gh repo view --web"
+alias pr="gh pr view --web"
+
+# go
+alias godocs="godoc -http=:6060"
+alias gobyexample="(cd $HOME/git/personal/gobyexample/ && tools/serve)"
+
+# terrafrom
+alias tf="terraform"
+
+# git
+alias gcm="git commit -m"
+alias ga="git add"
+alias gp="git push"
+

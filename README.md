@@ -1,12 +1,34 @@
-# Dev Preferences
+# Dotfiles
 
-**Editor of Choice:** LunarVim
-I love the look, and it provides sane defaults. The documentation could be better,
-but it is concise. For anyone wanting use LunarVim, I recommend working through 
-[Chris@machine YoutTube Playlist](https://www.youtube.com/watch?v=ctH-a-1eUME&list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ) that explains how to configure Neovim from scratch. 
+Personal macOS development environment configuration.
 
-**Shell of Choice:** Zsh + Oh-my-zsh + powerlevel10k
+This repo is built around a small, explicit toolchain:
 
-**Theme:** Dracula
+- Neovim config derived from Kickstart.nvim
+- zsh with completion, history search, aliases, and Starship
+- tmux with vim-style navigation and true color support
+- Ghostty terminal settings
+- Homebrew bundle for common CLI tools, language servers, and desktop apps
 
+## Layout
 
+| Path | Purpose |
+| --- | --- |
+| `Brewfile` | Homebrew taps, formulae, casks, and Go tools |
+| `.zshrc` | Shell startup config |
+| `.aliases` | Short aliases for Git, GitHub, Kubernetes, Go, and Terraform |
+| `starship.toml` | Prompt customizations |
+| `tmux/.tmux.conf` | tmux prefix, pane navigation, plugins, and terminal color |
+| `ghostty/config` | Ghostty font, theme, macOS, and performance settings |
+| `nvim/` | Neovim configuration |
+| `.editorconfig` | Shared editor defaults |
+| `.markdownlint.jsonc` | Markdown linting rules |
+
+## Bootstrap
+
+Run the install script `./install.sh`
+
+## Notes
+
+These are personal defaults, not a portable framework. The config assumes macOS,
+Homebrew, zsh, and a terminal with Nerd Font support.

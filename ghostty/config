@@ -1,0 +1,15 @@
+# Ghostty config
+font-family = "JetBrains Mono"
+font-size = 14
+font-thicken = true
+theme = "Catppuccin Frappe"
+term = xterm-256color
+
+# macOS
+macos-option-as-alt = true
+macos-titlebar-style = transparent
+
+# Performance
+mouse-hide-while-typing = true
+background-opacity = 1.0
+background-blur-radius = 20

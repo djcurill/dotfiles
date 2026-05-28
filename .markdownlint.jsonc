@@ -1,0 +1,19 @@
+{
+  // Enable all rules by default, then selectively disable/tune below
+  "default": true,
+
+  // MD013: Line length — disabled because 80-char limit is too strict for prose
+  "MD013": false,
+
+  // MD033: Inline HTML — disabled to allow tags like <br>, <details>, <summary>
+  "MD033": false,
+
+  // MD041: First line heading — disabled so files don't need to start with # H1
+  "MD041": false,
+
+  // MD034: Bare URLs — disabled to allow plain URLs without wrapping in <> or [text](url)
+  "MD034": false,
+
+  // MD007: Unordered list indent — relaxed from 2 spaces to 4 for readability
+  "MD007": { "indent": 4 }
+}

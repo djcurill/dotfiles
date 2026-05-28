@@ -1,0 +1,6 @@
+[custom.dox_sandbox]
+command = "dox-sandbox-info"
+when = 'test -n "$DOX_SANDBOX_TIER"'
+unsafe_no_escape = true
+format = "[$output](bold)"
+shell = ["bash", "--norc", "--noprofile"]
