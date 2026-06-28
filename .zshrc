@@ -23,10 +23,4 @@ bindkey '^[[B' history-substring-search-down
 ## Other aliases
 test -f $HOME/.aliases && source $HOME/.aliases
 
-# dox-agent PATH
-export PATH="/Users/danielcurilla/git/agentic-dev/bin:$PATH"
-
-# mise (tool version manager)
-eval "$(mise activate zsh)"
-
 eval "$(starship init zsh)"

@@ -26,4 +26,5 @@ alias tf="terraform"
 alias gcm="git commit -m"
 alias ga="git add"
 alias gp="git push"
+alias gco="git checkout"
 
