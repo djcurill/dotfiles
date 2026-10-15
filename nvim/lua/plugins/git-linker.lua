@@ -1,5 +1,10 @@
--- gitlinker
--- https://github.com/linrongbin16/gitlinker.nvim
+--[[
+gitlinker
+https://github.com/linrongbin16/gitlinker.nvim
+
+Permalinks to the current line/selection on GitHub. <leader>gy yanks the
+link, <leader>gY opens it in the browser.
+]]
 ---@module 'lazy'
 ---@type LazySpec
 return {

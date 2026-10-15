@@ -1,4 +1,11 @@
--- Telescope Configuration
+--[[
+telescope (fuzzy finder)
+https://github.com/nvim-telescope/telescope.nvim
+
+Fuzzy-find files, text, help, diagnostics, LSP symbols. All <leader>s* keymaps
+are defined in `config` below (press <leader>sk to list them). Needs `rg` and
+`fd`. Inside a picker: <c-/> (insert) or ? (normal) shows its keymaps.
+]]
 
 ---@module 'lazy'
 ---@type LazySpec

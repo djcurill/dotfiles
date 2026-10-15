@@ -1,4 +1,11 @@
--- Linting
+--[[
+lint (nvim-lint)
+https://github.com/mfussenegger/nvim-lint
+
+Runs external linters and reports results as diagnostics, on BufEnter,
+BufWritePost and InsertLeave. To add a language: add it to `linters_by_ft`
+and install the linter binary (:Mason or your package manager).
+]]
 
 ---@module 'lazy'
 ---@type LazySpec

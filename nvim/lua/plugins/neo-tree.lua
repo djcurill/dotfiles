@@ -1,5 +1,10 @@
--- Neo-tree is a Neovim plugin to browse the file system
--- https://github.com/nvim-neo-tree/neo-tree.nvim
+--[[
+neo-tree (file explorer)
+https://github.com/nvim-neo-tree/neo-tree.nvim
+
+Sidebar file browser. `\` reveals the current file in the tree (and closes it
+again when pressed inside the tree).
+]]
 
 ---@module 'lazy'
 ---@type LazySpec

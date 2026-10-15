@@ -1,5 +1,11 @@
--- markdown preview
---
+--[[
+markdown-preview
+https://github.com/iamcco/markdown-preview.nvim
+
+Live browser preview of markdown. <leader>mp toggles it (markdown buffers).
+If it fails to start, run :call mkdp#util#install() to fetch the app.
+]]
+
 ---@module 'lazy'
 ---@type LazySpec
 return {

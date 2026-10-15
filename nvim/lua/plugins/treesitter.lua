@@ -1,4 +1,12 @@
--- Treesitter Configuration
+--[[
+treesitter (syntax highlighting + indent)
+https://github.com/nvim-treesitter/nvim-treesitter (`main` branch)
+
+Installs parsers listed in `parsers` below, and on every FileType attaches
+highlighting + treesitter indent (auto-installing a missing parser when one
+is available). To add a language: append it to `parsers`. Needs the
+`tree-sitter` CLI and a C compiler. Check with :checkhealth nvim-treesitter.
+]]
 
 ---@module 'lazy'
 ---@type LazySpec

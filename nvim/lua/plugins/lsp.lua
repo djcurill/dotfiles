@@ -1,4 +1,12 @@
--- LSP Configuration
+--[[
+lsp (language servers)
+https://github.com/neovim/nvim-lspconfig
+
+Sections: (1) Mason installs servers/tools, (2) LspAttach autocmd sets per-buffer
+keymaps (grn rename, gra code action, ...), (3) `servers` table lists the servers
+to enable. To add a language: add its server to `servers` (installed automatically).
+Debug with :checkhealth vim.lsp, :lsp restart, :Mason, and the log level in options.lua.
+]]
 
 ---@module 'lazy'
 ---@type LazySpec

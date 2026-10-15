@@ -1,9 +1,13 @@
 --[[
---
--- This file is not required for your own configuration,
--- but helps people determine if their system is setup correctly.
---
---]]
+health.lua
+
+Custom checks for `:checkhealth`. Verifies the Neovim version and the
+external tools this config relies on.
+
+Run with:  :checkhealth config   (module name = the directory name, lua/config/)
+NOTE: Neovim only discovers lua/<name>/health.lua (one directory deep). A file at
+lua/health.lua is never found, which is why this lives in lua/config/.
+]]
 
 local check_version = function()
   local verstr = tostring(vim.version())
@@ -19,9 +23,12 @@ local check_version = function()
   end
 end
 
+-- Executables that plugins shell out to. Missing ones are warnings, not errors:
+-- only fix the ones for features you actually use.
+--   git/make/unzip: plugin + Mason installs   rg/fd: Telescope
+--   tree-sitter:    parser compilation (nvim-treesitter)
 local check_external_reqs = function()
-  -- Basic utils: `git`, `make`, `unzip`
-  for _, exe in ipairs { 'git', 'make', 'unzip', 'rg' } do
+  for _, exe in ipairs { 'git', 'make', 'unzip', 'rg', 'fd', 'tree-sitter' } do
     local is_executable = vim.fn.executable(exe) == 1
     if is_executable then
       vim.health.ok(string.format("Found executable: '%s'", exe))
@@ -35,7 +42,7 @@ end
 
 return {
   check = function()
-    vim.health.start 'kickstart.nvim'
+    vim.health.start 'nvim config'
 
     vim.health.info [[NOTE: Not every warning is a 'must-fix' in `:checkhealth`
 

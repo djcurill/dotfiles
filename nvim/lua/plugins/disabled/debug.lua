@@ -1,10 +1,13 @@
--- debug.lua
---
--- Shows how to use the DAP plugin to debug your code.
---
--- Primarily focused on configuring the debugger for Go, but can
--- be extended to other languages as well. That's why it's called
--- kickstart.nvim and not kitchen-sink.nvim ;)
+--[[
+debug.lua (DISABLED: lives in plugins/disabled/, so lazy ignores it)
+To enable, move this file up into lua/plugins/.
+
+Shows how to use the DAP plugin to debug your code.
+
+Primarily focused on configuring the debugger for Go, but can
+be extended to other languages as well. That's why it's called
+kickstart.nvim and not kitchen-sink.nvim ;)
+]]
 
 ---@module 'lazy'
 ---@type LazySpec
