@@ -1,0 +1,51 @@
+# Core CLI tools. Install with: ./bootstrap.sh
+# Dependencies (openssl, zlib, openblas, ...) are installed by brew; don't list them.
+
+# Shell and terminal
+brew "starship"
+brew "tmux"
+brew "zsh-autosuggestions"
+brew "zsh-history-substring-search"
+brew "zsh-syntax-highlighting"
+
+# Editor and language servers
+brew "neovim"
+brew "tree-sitter"
+brew "tree-sitter-cli"
+brew "lua-language-server"
+brew "gopls"
+brew "yaml-language-server"
+brew "markdownlint-cli"
+brew "shellcheck"
+brew "golangci-lint"
+
+# Search and viewing
+brew "bat"
+brew "fd"
+brew "fzf"
+brew "ripgrep"
+brew "jq"
+brew "yq"
+brew "grip"
+
+# Languages and runtimes
+brew "go"
+brew "node"
+brew "uv"
+brew "pipx"
+brew "cmake"
+brew "gcc"
+brew "pkgconf"
+
+# Git and dev tools
+brew "gh"
+brew "bfg"
+brew "pre-commit"
+brew "pngpaste"
+brew "autossh"
+brew "qemu"
+
+# Databases
+brew "pgcli"
+brew "postgresql@14"
+brew "mysql@8.0"

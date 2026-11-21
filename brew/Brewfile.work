@@ -1,0 +1,31 @@
+# Doximity / cloud tooling. Install with: ./bootstrap.sh --work
+
+tap "ankitpokhrel/jira-cli"
+tap "atlassian/acli"
+tap "derailed/k9s"
+tap "hashicorp/tap"
+
+# AWS
+brew "awscli"
+brew "aws-vault", link: false
+brew "docker-credential-helper-ecr"
+
+# Kubernetes
+brew "kubernetes-cli"
+brew "helm"
+brew "helm-ls"
+brew "kind"
+brew "kubespy"
+brew "kubie"
+brew "derailed/k9s/k9s"
+
+# Terraform
+brew "tfenv"
+brew "tflint"
+brew "hashicorp/tap/terraform-ls"
+
+# Other
+brew "circleci"
+brew "snowflake-cli"
+brew "mcp-toolbox"
+brew "atlassian/acli/acli"

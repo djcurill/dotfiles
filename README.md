@@ -1,34 +1,35 @@
 # Dotfiles
 
-Personal macOS development environment configuration.
+My macOS development setup: Neovim, zsh, tmux, Ghostty, and Homebrew packages.
 
-This repo is built around a small, explicit toolchain:
+## Quick start
 
-- Neovim config derived from Kickstart.nvim
-- zsh with completion, history search, aliases, and Starship
-- tmux with vim-style navigation and true color support
-- Ghostty terminal settings
-- Homebrew bundle for common CLI tools, language servers, and desktop apps
+```sh
+./bootstrap.sh            # core tools + symlinks
+./bootstrap.sh --work     # also work tools
+./bootstrap.sh --casks    # also GUI apps (may ask for your password)
+```
 
-## Layout
+## What's inside
 
-| Path | Purpose |
+| Path | What it is |
 | --- | --- |
-| `Brewfile` | Homebrew taps, formulae, casks, and Go tools |
-| `.zshrc` | Shell startup config |
-| `.aliases` | Short aliases for Git, GitHub, Kubernetes, Go, and Terraform |
-| `starship.toml` | Prompt customizations |
-| `tmux/.tmux.conf` | tmux prefix, pane navigation, plugins, and terminal color |
-| `ghostty/config` | Ghostty font, theme, macOS, and performance settings |
-| `nvim/` | Neovim configuration |
-| `.editorconfig` | Shared editor defaults |
-| `.markdownlint.jsonc` | Markdown linting rules |
+| `bootstrap.sh` | Installs Homebrew, packages, and symlinks |
+| `links.sh` | Links the configs below into `$HOME` |
+| `brew/` | Package lists: core, work, and GUI apps |
+| `nvim/` | Neovim config |
+| `.zshrc`, `.aliases`, `starship.toml` | Shell and prompt |
+| `tmux/`, `ghostty/`, `pgcli/` | Terminal tools |
 
-## Bootstrap
+## Themes
 
-Run the install script `./install.sh`
+Pick a colorscheme in Neovim with `<leader>cs`. Ghostty and tmux follow it
+automatically (see `nvim/lua/theme-sync.lua`).
 
-## Notes
+## Keeping packages tidy
 
-These are personal defaults, not a portable framework. The config assumes macOS,
-Homebrew, zsh, and a terminal with Nerd Font support.
+```sh
+brew bundle cleanup --file=brew/Brewfile   # lists packages not in the file
+```
+
+This setup assumes macOS, Homebrew, zsh, and a Nerd Font.

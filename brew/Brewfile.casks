@@ -1,0 +1,38 @@
+# GUI apps. Install with: ./bootstrap.sh --casks
+# Run this one at the keyboard: some casks ask for your sudo password.
+
+# Terminal and editors
+cask "ghostty"
+cask "zed"
+cask "claude-code"
+cask "codex"
+cask "obsidian"
+
+# Work
+cask "docker-desktop"
+cask "flux-app"
+cask "aws-vault-binary"
+cask "session-manager-plugin"
+cask "slack"
+cask "zoom"
+cask "google-drive"
+cask "google-chrome"
+cask "1password"
+cask "1password-cli"
+
+# Utilities
+cask "raycast"
+cask "rectangle"
+cask "hiddenbar"
+cask "protonvpn"
+cask "keybase"
+
+# Personal
+cask "spotify"
+cask "vlc"
+cask "qbittorrent"
+cask "whatsapp"
+cask "raspberry-pi-imager"
+
+# Large (several GB). Uncomment on purpose; basictex is a small alternative.
+# cask "mactex"
