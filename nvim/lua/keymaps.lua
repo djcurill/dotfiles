@@ -29,7 +29,7 @@ map('n', '<leader>bd', function()
     vim.cmd 'w | bdelete'
   end
 end, { desc = 'Close buffer' })
-map('n', '<Tab>', ':bnext<CR>', { desc = 'Next buffer' })
+-- <Tab> / <S-Tab> buffer cycling is owned by lua/plugins/bufferline.lua.
 
 -- [[ Windows ]] ---------------------------------------------------------------
 -- Focus movement (<C-h/j/k/l>) is owned by lua/plugins/nvim-tmux.lua.
