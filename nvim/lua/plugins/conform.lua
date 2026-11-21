@@ -39,8 +39,23 @@ return {
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
+      html = { 'djlint' }, -- also Go templates (*.gohtml mapped to html in autocmds.lua)
       -- Run several in sequence:   python = { 'isort', 'black' },
       -- First available only:      javascript = { 'prettierd', 'prettier', stop_after_first = true },
+    },
+    formatters = {
+      -- djlint is installed with brew (`brew install djlint`).
+      -- --indent follows the buffer's shiftwidth, which Neovim sets from
+      -- .editorconfig, so the formatter and editor always agree. The golang
+      -- profile (understands {{ if }} / {{ end }}) is only used for *.gohtml.
+      djlint = {
+        args = function(_, ctx)
+          local args = { '--reformat', '--indent', tostring(vim.bo[ctx.buf].shiftwidth) }
+          if ctx.filename:match '%.gohtml$' then vim.list_extend(args, { '--profile=golang' }) end
+          table.insert(args, '-')
+          return args
+        end,
+      },
     },
   },
 }

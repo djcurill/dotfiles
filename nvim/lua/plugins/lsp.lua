@@ -114,7 +114,14 @@ return {
       html = {},
       cssls = {},
 
-      terraformls = {},
+      terraformls = {
+        -- Skip dirs terraform-ls would otherwise walk and index (huge, no Terraform in them).
+        init_options = {
+          indexing = {
+            ignoreDirectoryNames = { '.venv', '.logs', 'node_modules', '.git' },
+          },
+        },
+      },
 
       stylua = {}, -- Used to format Lua code
 

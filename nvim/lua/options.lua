@@ -18,9 +18,10 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 
 -- [[ LSP ]] -------------------------------------------------------------------
--- Only log warnings and errors (see README for how to open the log). Use 'DEBUG' when troubleshooting.
+-- Logging is off: servers like terraform-ls write debug output to stderr, and nvim logs
+-- that at ERROR level, so 'WARN' still grew lsp.log to GBs. Use 'DEBUG' when troubleshooting.
 -- (`vim.lsp.log.set_log_level` no longer exists on Neovim 0.12; it is `set_level`.)
-vim.lsp.log.set_level 'WARN'
+vim.lsp.log.set_level 'OFF'
 
 -- [[ UI ]] --------------------------------------------------------------------
 vim.o.number = true -- line numbers
@@ -49,11 +50,6 @@ vim.o.undofile = true -- persist undo history across sessions
 vim.o.confirm = true -- prompt to save instead of failing on :q with unsaved changes
 vim.o.updatetime = 250 -- faster CursorHold / swap writes (ms)
 vim.o.timeoutlen = 300 -- how long to wait for a mapped key sequence (ms)
-
--- [[ Filetypes ]] --------------------------------------------------------------
-vim.filetype.add {
-  pattern = { ['.*/assets/html/.*%.tmpl'] = 'html' },
-}
 
 -- Sync clipboard with the OS. Scheduled because it can slow startup.
 vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)

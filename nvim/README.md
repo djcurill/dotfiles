@@ -42,6 +42,7 @@ Load order in `init.lua` matters: `options` first (it sets the leader key before
 | [Nerd Font](https://www.nerdfonts.com/) | icons (set `vim.g.have_nerd_font = false` in `lua/options.lua` if you don't have one) |
 | Clipboard tool (`pbcopy` on macOS, `xclip`/`xsel` on Linux) | `clipboard = unnamedplus` |
 | `go`, `npm`, etc. | only for the languages you write |
+| `djlint` (`brew install djlint`) | formats HTML and Go templates (`lua/plugins/conform.lua`) |
 | `golangci-lint`, `markdownlint`, `ruff`, `tflint` | linters in `lua/plugins/lint.lua` (install via `:Mason` or your package manager) |
 
 ## Daily use
@@ -122,11 +123,16 @@ Add the pieces you need; each is one line:
 | Linter | add to `linters_by_ft` in `lua/plugins/lint.lua` |
 | Syntax parser | add to `parsers` in `lua/plugins/treesitter.lua` |
 
-Map an extension to a filetype (for example Go templates as HTML) in a `vim.filetype.add` call, e.g. in `lua/autocmds.lua`:
+Map an extension or pattern to a filetype in the `vim.filetype.add` call in `lua/autocmds.lua`. Go HTML templates use the
+`.gohtml` extension and are mapped to `html`. Give each template engine its own extension (e.g. Jinja: `.html.j2`) instead of
+a shared `.tmpl`:
 
 ```lua
-vim.filetype.add { extension = { tmpl = 'html' } }
+extension = { gohtml = 'html', j2 = 'jinja' },
 ```
+
+Indent for `.gohtml` comes from `.editorconfig` (`[*.gohtml]`, 2 spaces); djlint is passed the buffer's `shiftwidth` and the
+`golang` profile, so the formatter follows it.
 
 Verify with `:set ft?`.
 
@@ -173,7 +179,7 @@ Warnings for languages you don't use are fine.
 | Plugin misbehaves after an update | `:Lazy restore` |
 | A key does nothing or does the wrong thing | `:verbose map <key>` shows who set it and where; `:checkhealth which-key` flags conflicts |
 | No completions, diagnostics or hover | `:checkhealth vim.lsp`; `:lsp restart`; `:Mason` to confirm the server is installed |
-| Need the LSP log | `:lua vim.cmd.edit(vim.lsp.log.get_filename())`. It only records `WARN`+ (set in `lua/options.lua`); use `'DEBUG'` temporarily |
+| Need the LSP log | `:lua vim.cmd.edit(vim.lsp.log.get_filename())`. Logging is `OFF` (set in `lua/options.lua`); use `'DEBUG'` temporarily |
 | Not formatting on save | `:ConformInfo` (is the formatter installed and found?) |
 | Linter not running | `:lua print(vim.inspect(require('lint').linters_by_ft[vim.bo.filetype]))`, and check the binary is on `$PATH` |
 | No syntax highlighting | `:checkhealth nvim-treesitter`, then `:InspectTree`; make sure `tree-sitter` and a C compiler exist |
