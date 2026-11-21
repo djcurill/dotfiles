@@ -7,7 +7,7 @@ export PATH=$HOME/bin:$HOME/.local/bin:$HOME/usr/local/bin:$PATH
 export PATH=$PATH:$(go env GOPATH)/bin
 
 # Doximity configuration
-test -f /Users/danielcurilla/.doximityrc && source /Users/danielcurilla/.doximityrc
+test -f $HOME/.doximityrc && source $HOME/.doximityrc
 
 # Kubernetes
 source <(kubectl completion zsh)
