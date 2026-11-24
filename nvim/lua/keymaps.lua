@@ -22,11 +22,33 @@ map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]ui
 
 -- [[ Buffers ]] ---------------------------------------------------------------
 -- Save then close; terminal buffers are force-closed (nothing to save).
+-- The window stays open and shows the next source buffer. Plain `:bdelete`
+-- closes the window, which leaves only the neo-tree sidebar.
+local function next_source_buffer(current)
+  local bufs = vim.tbl_filter(function(b)
+    return b.listed == 1 and b.bufnr ~= current and vim.bo[b.bufnr].buftype == '' and vim.bo[b.bufnr].filetype ~= 'neo-tree'
+  end, vim.fn.getbufinfo { buflisted = 1 })
+  -- Prefer the first buffer after the current one, else wrap to the first.
+  for _, b in ipairs(bufs) do
+    if b.bufnr > current then return b.bufnr end
+  end
+  return bufs[1] and bufs[1].bufnr
+end
+
 map('n', '<leader>bd', function()
-  if vim.bo.buftype == 'terminal' then
-    vim.cmd 'bdelete!'
+  local current = vim.api.nvim_get_current_buf()
+  local is_term = vim.bo[current].buftype == 'terminal'
+  -- Unnamed buffers can't be written (E32). Skip the save for them.
+  if not is_term and vim.api.nvim_buf_get_name(current) ~= '' then vim.cmd 'w' end
+
+  local target = next_source_buffer(current)
+  if target then
+    vim.api.nvim_win_set_buf(0, target)
   else
-    vim.cmd 'w | bdelete'
+    vim.cmd 'enew'
+  end
+  if vim.api.nvim_buf_is_valid(current) then
+    vim.cmd((is_term and 'bdelete! ' or 'bdelete ') .. current)
   end
 end, { desc = 'Close buffer' })
 -- <Tab> / <S-Tab> buffer cycling is owned by lua/plugins/bufferline.lua.
