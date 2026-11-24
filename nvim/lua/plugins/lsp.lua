@@ -102,7 +102,11 @@ return {
     local servers = {
       -- clangd = {},
       gopls = {},
-      pyright = {},
+      pyright = {
+        -- Let ruff own import organizing so <leader>i doesn't show a picker.
+        settings = { pyright = { disableOrganizeImports = true } },
+      },
+      ruff = {}, -- Python imports (sort + remove unused) via <leader>i
       -- rust_analyzer = {},
       --
       -- Some languages (like typescript) have entire language plugins that can be useful:

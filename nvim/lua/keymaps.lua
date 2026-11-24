@@ -64,6 +64,11 @@ map('n', '<leader>w', ':w<CR>', { desc = 'Save window' })
 map('n', '<leader>x', ':q<CR>', { desc = 'Exit window' })
 map('n', '<leader>X', ':qa<CR>', { desc = 'Exit all windows' })
 
+-- [[ LSP ]] -------------------------------------------------------------------
+map('n', '<leader>i', function()
+  vim.lsp.buf.code_action { context = { only = { 'source.organizeImports' }, diagnostics = {} }, apply = true }
+end, { desc = 'Organize [I]mports' })
+
 -- [[ Toggles (<leader>t) ]] ---------------------------------------------------
 -- More toggles are defined by plugins: <leader>th (LSP inlay hints, lsp.lua),
 -- <leader>tb / <leader>tw (git blame / word diff, gitsigns.lua).
